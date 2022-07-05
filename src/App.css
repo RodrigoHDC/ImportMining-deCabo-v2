@@ -1,0 +1,12 @@
+section {
+  color:black;
+  text-shadow: 3px 3px white;
+  background-color: rgb(220, 220, 220);
+  text-align: center;
+  height: 50px;
+}
+
+/* Estilos del ícono CartWidget */
+ion-icon {
+  font-size: 40px;
+}
