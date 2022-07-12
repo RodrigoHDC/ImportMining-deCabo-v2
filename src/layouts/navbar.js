@@ -42,7 +42,7 @@ const NavBarExample = () => {
       </nav>
 
       <section>
-        <Outlet></Outlet>
+        <Outlet/>
       </section>
     </>
       );
