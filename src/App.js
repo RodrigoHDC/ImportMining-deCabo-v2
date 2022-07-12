@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <ItemListContainer greeting={"!Bienvenido a la tienda de Import Mining!"} />;
+      <ItemListContainer greeting={"!Bienvenido a la tienda de Import Mining!"} />
     </div>
   );
 }
