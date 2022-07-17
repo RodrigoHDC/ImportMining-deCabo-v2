@@ -9,7 +9,7 @@ import Nosotros from './components/nosotros';
 import Faq from './components/faq';
 import Contacto from './components/contacto';
 import NavBarExample from './layouts/navbar';
-import ItemListContainer from './components/ItemListContainer';
+import Render from './components/Desafio 5/ItemListContainer';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <ItemListContainer greeting={"!Bienvenido a la tienda de Import Mining!"} />
+      <Render greeting={"!Bienvenido a la tienda de Import Mining!"} />
     </div>
   );
 }
