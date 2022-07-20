@@ -1,14 +1,17 @@
-const Item = (props) => (
-        <div>
-            <h1>{props.id}</h1>
-            <h1>{props.category}</h1>
-            <h1>{props.title}</h1>
-            <h1>{props.description}</h1>
-            <h1>{props.price}</h1>
-            <h1>{props.stock}</h1>
-            <img>{props.img}</img>
-        </div>
-    )
+import Item from "./Item";
 
- 
-export default Item;
+const ItemList = ({ items }) => {
+  return (
+    <div className="container">
+      <div className="row">
+        {items.map((item) => (
+          <div key={item.id} className="col-sm">
+            <Item item={item} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ItemList;
