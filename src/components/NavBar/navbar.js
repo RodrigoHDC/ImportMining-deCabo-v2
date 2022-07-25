@@ -32,20 +32,21 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/category/Estructura">Estructuras</Nav.Link>
             </ul>
       
-
             <form className="d-flex">
               <input className="form-control mx-0" type="busqueda" placeholder="¿Qué estás buscando?" aria-label="busqueda"/>
               <button className="btn btn-primary-outline-success btn-primary" type="button">Buscar</button>
             </form>
 
           </div>
-        </div>
-        <CartWidget/>
-      </nav>
+  </div>
+
+          <CartWidget/>
+    </nav>
 
       <section>
         <Outlet/>
       </section>
+      
     </>
   );
 }

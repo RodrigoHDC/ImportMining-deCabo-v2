@@ -1,19 +1,28 @@
+import { useState } from "react";
 import ItemCount from "../Count/ItemCount";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
+import cart from "../Cart/Cart";
 
 
-const onAddItem = (count) => {
-  if (count === 1){
-   alert(`${count} Producto ha sido agregado a tu carrito!`)}
-   else (
-     alert(`${count} Productos han sido agregados a tu carrito!`))  
-   };
+// const onAddItem = (count) => {
+//   if (count === 1){
+//    alert(`${count} Producto ha sido agregado a tu carrito!`)}
+//    else (
+//      alert(`${count} Productos han sido agregados a tu carrito!`))  
+//    };
 
 const ItemDetail = ({ item }) => {
+  const [amount, setAmount] = useState(0);
   const { id, category, title, description, price, stock, img, color, ROI} = item;
+  const navigate = useNavigate();
+  const onAdd = (amount) => {
+    setAmount(amount);
+    navigate("/cart");
+  }
 
   return (
     <>
@@ -40,7 +49,7 @@ const ItemDetail = ({ item }) => {
           <Card.Text>Stock Disponible: {stock}</Card.Text>
           <hr />
           <div>
-          <ItemCount key={id} stock={stock} initial={1} onAdd={onAddItem} />
+          <ItemCount key={id} stock={stock} initial={0} onAdd={onAdd} />
           </div>
         </Col>
 

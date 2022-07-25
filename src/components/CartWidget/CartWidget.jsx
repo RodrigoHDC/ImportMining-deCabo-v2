@@ -1,9 +1,9 @@
 const CartWidget = () => {
-    const amount = 2;
+    const amount = 0;
     return ( 
         <>
         <ion-icon name="cart"></ion-icon>
-        <h4>{amount} </h4>
+        <h6> {amount} </h6>
         </>  
     );
 }
