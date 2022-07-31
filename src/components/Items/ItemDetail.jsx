@@ -5,22 +5,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
-import cart from "../Cart/Cart";
-
-
-// const onAddItem = (count) => {
-//   if (count === 1){
-//    alert(`${count} Producto ha sido agregado a tu carrito!`)}
-//    else (
-//      alert(`${count} Productos han sido agregados a tu carrito!`))  
-//    };
+import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ item }) => {
   const [amount, setAmount] = useState(0);
   const { id, category, title, description, price, stock, img, color, ROI} = item;
   const navigate = useNavigate();
+  
+  const {addProduct} = useCartContext();
   const onAdd = (amount) => {
     setAmount(amount);
+    addProduct(item, amount);
     navigate("/cart");
   }
 

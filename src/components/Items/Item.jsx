@@ -4,10 +4,14 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { useContext } from "react";
+import { useCartContext } from "../../context/CartContext";
 
 
 const Item = ({ item }) => {
   const { id, category, title, description, price, stock, img } = item;
+
+  const nombre = useContext(useCartContext);
 
   return (
     <Container>

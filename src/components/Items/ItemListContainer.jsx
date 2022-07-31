@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from '../Spinner/Spinner';
 
-
 const ItemListContainer = () => {
     const { name } = useParams();
     const [items, setItems] = useState([]);

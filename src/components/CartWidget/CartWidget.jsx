@@ -1,5 +1,8 @@
+import React from "react";
+
 const CartWidget = () => {
     const amount = 0;
+
     return ( 
         <>
         <ion-icon name="cart"></ion-icon>
