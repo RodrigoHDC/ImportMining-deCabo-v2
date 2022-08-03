@@ -1,12 +1,13 @@
 import React from "react";
+import { useCartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
-    const amount = 0;
+    const {totalProducts} = useCartContext();
 
     return ( 
         <>
         <ion-icon name="cart"></ion-icon>
-        <h6> {amount} </h6>
+        <span>{totalProducts() || ''}</span>
         </>  
     );
 }

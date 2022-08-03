@@ -15,11 +15,17 @@ const CartProvider = ({ children }) => {
         }
     }
 
-    const clearCart = () => setCart([]);
-    const isInCart = (id) => cart.find(product => product.id === id) ? true : false;
-    const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
+    const totalPrice = () => {
+        return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+    };
 
-    console.log('carrito: ', cart);
+    const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
+
+    const clearCart = () => setCart([]);
+
+    const isInCart = (id) => cart.some(product => product.id === id);
+
+    const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
     
     return ( 
         <CartContext.Provider value={{
@@ -27,6 +33,9 @@ const CartProvider = ({ children }) => {
             isInCart,
             removeProduct,
             addProduct,
+            totalPrice,
+            totalProducts,
+            cart
         }}>
             {children}
         </CartContext.Provider>
