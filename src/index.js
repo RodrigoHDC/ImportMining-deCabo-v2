@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 // Importamos bootstrap:
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Importamos firebase:
+import './firebase/config';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

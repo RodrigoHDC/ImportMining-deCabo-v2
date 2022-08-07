@@ -1,29 +1,23 @@
 import ItemDetail from './ItemDetail';
-import data from "../Data/apidetails.json";
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
-import Spinner from '../Spinner/Spinner';
-
+// Importamos Firebase:
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
-  const [loading, setLoading] = useState(false);
-  const params = useParams();
-
-  const promise = new Promise((res, rej) => {
-    setTimeout(() => res(data), 2000);
-  });
+  const { id } = useParams();
 
   useEffect( () => {
-    setLoading(true);
-    promise.then((response) => {
-      const foundItem = response.filter((item )=> item.id == params.id);
-      setItem(foundItem[0]);
-      setLoading(false);
-    })
+      const querydb = getFirestore();
+      const queryDoc = doc(querydb, 'Items', id);
+      getDoc(queryDoc)
+        .then(res => setItem({id: res.id, ...res.data() }))
   }, []);
 
-  return loading ? <Spinner /> : <ItemDetail item={item} />;
+  return (
+    <ItemDetail item={item} />
+  )
 };
 
 export default ItemDetailContainer;
